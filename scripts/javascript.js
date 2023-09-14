@@ -1,5 +1,6 @@
+
 function getComputerChoice(){
-    let n1 = Math.random() * 3;
-    n1 = Math.ceil(n1);
-    return n1;
+    let computerSelection = Math.random() * 3;
+    computerSelection = Math.ceil(computerSelection);
+    return computerSelection;
 }
