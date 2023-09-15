@@ -29,3 +29,21 @@ function checkPlayerChoice(playerSelection){
         return playerSelection;
     }
 }
+
+/*The calcResult function, will be responsible only for the subtraction.
+The getResult function, will be the responsible for showing us the winner */
+
+function calcResult(playerNumber, computerNumber){
+    
+    return playerNumber - computerNumber;
+}
+
+function getResult(result){
+    if(result == -2 || result == 1)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
