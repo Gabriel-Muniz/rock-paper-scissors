@@ -20,3 +20,12 @@ function getPlayerChoice(){
         break;
     }
 }
+
+function checkPlayerChoice(playerSelection){
+    if(playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors"){
+        alert("Please choose a valid option!");
+        return getPlayerChoice();
+    }else{
+        return playerSelection;
+    }
+}
