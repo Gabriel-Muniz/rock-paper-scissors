@@ -19,14 +19,29 @@ function checkPlayerChoice(playerSelection) {
         return false;
     }
 }
+function convertPlayerChoice(playerSelection) {
+    switch(playerSelection){
+        case "rock":
+            return 1;
+        break;
+        case "paper":
+            return 2;
+        break;
+        case "scissors":
+            return 3;
+        break;
+        default:
+            return alert("Something went wrong on the conversion");
+    }
+}
 
 function test() {
     computerSelection = getComputerChoice();
     do {
         playerSelection = getPlayerChoice();
     } while (checkPlayerChoice(playerSelection));
-    console.log(playerSelection);
+    console.log(convertPlayerChoice(playerSelection));
+
 }
-for (let i = 0; i < 5; i++) {
-    test()
-}
+
+test()
