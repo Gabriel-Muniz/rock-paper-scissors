@@ -41,9 +41,18 @@ function calcResult(playerNumber, computerNumber){
 function getResult(result){
     if(result == -2 || result == 1)
     {
-        return true;
+        return "win";
+    }
+    else if(result == 0){
+        return "draw";
     }
     else{
-        return false;
+        return "lose";
     }
 }
+
+console.log(getResult(1));
+console.log(getResult(-2));
+console.log(getResult(0));
+console.log(getResult(-1));
+console.log(getResult(2));
