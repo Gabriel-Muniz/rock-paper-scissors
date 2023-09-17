@@ -19,29 +19,31 @@ function game() {
             break;
         }
         roundsLeft -= 1;
+        //Checks if the computer still have chances of winning. If not gives the win to the player instantly.
         if(winCounts > roundsLeft && winCounts > loseCounts){
-            console.log(` \nYou won the game with ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties!.`);
+            alert(`You won the game with ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties!.`);
             break;
         }
     }
+
     if(loseCounts >= tieCounts && loseCounts > winCounts) {
-        console.log(` \nYou lose the game with ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties!.`);
+        alert(` \nYou lose the game with ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties!.`);
     }else if(winCounts == loseCounts && winCounts < tieCounts){
-        console.log(`\nWell... that's embarassing, you guys tied...`)
+        alert(`\nWell... that's embarassing, you guys tied...`)
     }
-    console.log(winCounts, loseCounts, tieCounts)
 }
 
 function round() {
     computerSelection = getComputerChoice();
 
-    do {
+    do { //Do while to assure that the player input was a valid option
         playerSelection = getPlayerChoice();
     } while (checkPlayerChoice(playerSelection));
 
     playerSelection = convertPlayerChoice(playerSelection);
     winner = getWinner(calcResult(playerSelection, computerSelection));
 
+    //Use to log winners of each round.
     switch(winner){
         case "win":
             console.log(`You won this round! ${convertChoice(playerSelection)} beats ${convertChoice(computerSelection)}!`);
@@ -57,7 +59,7 @@ function round() {
 }
 
 function getComputerChoice(){
-    let computerChoice = Math.random() * 3;
+    let computerChoice = Math.random() * 3; //Multiplied by three and ceil the number so the intervals between 0.01 to 1 will be considered as 1 and so on
     computerChoice = Math.ceil(computerChoice);
     return computerChoice;
 }

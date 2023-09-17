@@ -10,4 +10,4 @@ Being:  Rock    =   1   |
         Scissors=   3   |   
 
 The positives results(Player perspective): -2 and 1
-The negatives   //      //      //       :  2 and -1
+The negatives results(Player perspective):  2 and -1
