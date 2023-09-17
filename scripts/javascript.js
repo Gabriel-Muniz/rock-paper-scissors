@@ -40,7 +40,7 @@ function calcResult(playerSelection, computerSelection) {
 
 function getWinner(result){
     if(result == -2 || result == 1){
-        return "victory";
+        return "win";
     }else if(result == 2 || result == -1){
         return "lose";
     }else{
@@ -62,17 +62,29 @@ function convertChoice(respectiveChoice){
     }
 }
 
-function test() {
+function round() {
     computerSelection = getComputerChoice();
+
     do {
         playerSelection = getPlayerChoice();
     } while (checkPlayerChoice(playerSelection));
+
     playerSelection = convertPlayerChoice(playerSelection);
     winner = getWinner(calcResult(playerSelection, computerSelection));
-    console.log(`Rock = 1, Paper = 2, Scissors = 3\nComputer: ${computerSelection}\nPlayer: ${playerSelection}`)
-    console.log(winner)
-    console.log(`You choose ${convertChoice(playerSelection)}\nThe computer choose ${convertChoice(computerSelection)}`
-    )
+
+    switch(winner){
+        case "win":
+            return `You won this round! ${convertChoice(playerSelection)} beats ${convertChoice(computerSelection)}!`;
+        break;
+        case "lose":
+            return `You lose this round! ${convertChoice(playerSelection)} lose to ${convertChoice(computerSelection)}!`;
+        break;
+        case "draw":
+            return `That's a draw! Both  choosed ${convertChoice(playerSelection)}!`;
+        break;
+    }   
 }
 
-test()
+for(let i = 0; i < 5; i++){
+    console.log(round())
+}
