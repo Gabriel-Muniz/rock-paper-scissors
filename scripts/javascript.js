@@ -69,7 +69,7 @@ function round() {
 function getComputerChoice() {
     let computerChoice = Math.random() * 3; //Multiplied by three and ceil the number so the intervals between 0.01 to 1 will be considered as 1 and so on
     computerChoice = Math.ceil(computerChoice);
-    return 1;
+    return computerChoice;
 }
 
 function getPlayerChoice() {
