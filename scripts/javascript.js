@@ -1,4 +1,4 @@
-let computerSelection, playerSelection;
+let computerSelection, playerSelection, winner;
 
 function getComputerChoice(){
     let computerChoice = Math.random() * 3;
@@ -34,14 +34,29 @@ function convertPlayerChoice(playerSelection) {
             return alert("Something went wrong on the conversion");
     }
 }
+function calcResult(playerSelection, computerSelection) {
+    return playerSelection - computerSelection;
+}
+
+function getWinner(result){
+    if(result == -2 || result == 1){
+        return "victory";
+    }else if(result == 2 || result == -1){
+        return "lose";
+    }else{
+        return "draw";
+    }
+}
 
 function test() {
     computerSelection = getComputerChoice();
     do {
         playerSelection = getPlayerChoice();
     } while (checkPlayerChoice(playerSelection));
-    console.log(convertPlayerChoice(playerSelection));
-
+    playerSelection = convertPlayerChoice(playerSelection);
+    winner = getWinner(calcResult(playerSelection, computerSelection));
+    console.log(`Rock = 1, Paper = 2, Scissors = 3\nComputer: ${computerSelection}\nPlayer: ${playerSelection}`)
+    console.log(winner)
 }
 
 test()
