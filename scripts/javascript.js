@@ -9,10 +9,10 @@ function game() {
 
         //Checks if the computer still have chances of winning. If not gives the win to the player instantly.
         if ((winCounts > roundsNumber / 2) || (winCounts > loseCounts + roundsLeft) && (loseCounts + roundsLeft < roundsNumber)) {
-            console.log(`You won the game already! With ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties! \nThere's no way he can revert that! :)`);
+            console.log(`You've already won the game ! With ${winCounts} wins against ${loseCounts} losses and ${tieCounts} ties! \nThere's no way he can revert that! :)`);
             break;
         } else if (loseCounts > (roundsNumber / 2) || loseCounts > (winCounts + roundsLeft)) {
-            console.log(`You already lose the game... With ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties! \nThere's no way you can revert that! :(`);
+            console.log(`You've already lost the game... With ${loseCounts} losses against ${winCounts} wins and ${tieCounts} ties! \nThere's no way you can revert that! :(`);
             break;
         }
 
@@ -32,9 +32,9 @@ function game() {
     }
     if (roundsLeft == 0) {
         if (winCounts > loseCounts) {
-            console.log(` \nYou won the game with ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties!.`);
+            console.log(` \nYou won the game with ${winCounts} wins against ${loseCounts} losses and ${tieCounts} ties!.`);
         } else if (loseCounts > winCounts) {
-            console.log(` \nYou lose the game with ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties!.`);
+            console.log(` \nYou lost the game with ${loseCounts} losses against ${winCounts} wins and ${tieCounts} ties!.`);
         } else if (winCounts == loseCounts) {
             console.log(`\nWell... that's embarassing, you guys tied...`)
         }
@@ -57,10 +57,10 @@ function round() {
             console.log(`You won this round! ${convertChoice(playerSelection)} beats ${convertChoice(computerSelection)}!`);
             break;
         case "lose":
-            console.log(`You lose this round! ${convertChoice(playerSelection)} lose to ${convertChoice(computerSelection)}!`);
+            console.log(`You lost this round! ${convertChoice(playerSelection)} lose to ${convertChoice(computerSelection)}!`);
             break;
         case "ties":
-            console.log(`That's a tie! Both  choosed ${convertChoice(playerSelection)}!`);
+            console.log(`That's a tie! Both  chosed ${convertChoice(playerSelection)}!`);
             break;
     }
     return winner;
