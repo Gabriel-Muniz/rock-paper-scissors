@@ -18,18 +18,28 @@ function game() {
                 tieCounts += 1;
             break;
         }
-        roundsLeft -= 1;
-        //Checks if the computer still have chances of winning. If not gives the win to the player instantly.
-        if(winCounts > roundsLeft && winCounts > loseCounts){
-            alert(`You won the game with ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties!.`);
-            break;
-        }
-    }
 
-    if(loseCounts >= tieCounts && loseCounts > winCounts) {
-        alert(` \nYou lose the game with ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties!.`);
-    }else if(winCounts == loseCounts && winCounts < tieCounts){
-        alert(`\nWell... that's embarassing, you guys tied...`)
+        if(roundsLeft !== 1){
+             //Checks if the computer still have chances of winning. If not gives the win to the player instantly.
+            if(winCounts > (roundsNumber/2) || winCounts > (loseCounts + roundsLeft)){
+                console.log(`You won the game already! With ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties! \nThere's no way he can revert that! :)`);
+                break;
+            }else if(loseCounts>(roundsNumber/2)  || loseCounts > (winCounts + roundsLeft)){
+                console.log(`You already lose the game... With ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties! \nThere's no way you can revert that! :(`);
+                break;
+            }
+        }
+
+        roundsLeft -= 1;   
+    }
+    if(roundsLeft == 0){
+        if(winCounts>loseCounts){
+            console.log(` \nYou won the game with ${winCounts} wins against ${loseCounts} loses and ${tieCounts} ties!.`);
+        }else if(loseCounts > winCounts) {
+            console.log(` \nYou lose the game with ${loseCounts} loses against ${winCounts} wins and ${tieCounts} ties!.`);
+        }else if(winCounts == loseCounts){
+            console.log(`\nWell... that's embarassing, you guys tied...`)
+        }
     }
 }
 
