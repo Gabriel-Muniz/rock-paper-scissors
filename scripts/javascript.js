@@ -48,6 +48,20 @@ function getWinner(result){
     }
 }
 
+function convertChoice(respectiveChoice){
+    switch(respectiveChoice){
+        case 1:
+            return "rock";
+        break;
+        case 2:
+            return "paper";
+        break;
+        case 3:
+            return "scissors";
+        break;
+    }
+}
+
 function test() {
     computerSelection = getComputerChoice();
     do {
@@ -57,6 +71,8 @@ function test() {
     winner = getWinner(calcResult(playerSelection, computerSelection));
     console.log(`Rock = 1, Paper = 2, Scissors = 3\nComputer: ${computerSelection}\nPlayer: ${playerSelection}`)
     console.log(winner)
+    console.log(`You choose ${convertChoice(playerSelection)}\nThe computer choose ${convertChoice(computerSelection)}`
+    )
 }
 
 test()
