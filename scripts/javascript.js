@@ -1,35 +1,31 @@
 let computerSelection, playerSelection, winner;
-const roundsNumber = 5;
+let roundsNumber = 0;
+let roundsLeft = 5;
+let winCounts = loseCounts = tieCounts = 0;
 
-game()
 function game() {
-    let winCounts = loseCounts = tieCounts = 0;
-    let roundsLeft = roundsNumber;
-    for (let i = 0; i < roundsNumber; i++) {
 
-        //Checks if the computer still have chances of winning. If not gives the win to the player instantly.
-        if ((winCounts > roundsNumber / 2) || (winCounts > loseCounts + roundsLeft) && (loseCounts + roundsLeft < roundsNumber)) {
-            console.log(`You've already won the game ! With ${winCounts} wins against ${loseCounts} losses and ${tieCounts} ties! \nThere's no way he can revert that! :)`);
-            break;
-        } else if (loseCounts > (roundsNumber / 2) || loseCounts > (winCounts + roundsLeft)) {
-            console.log(`You've already lost the game... With ${loseCounts} losses against ${winCounts} wins and ${tieCounts} ties! \nThere's no way you can revert that! :(`);
-            break;
-        }
-
-        switch (round()) {
-            case "win":
-                winCounts += 1;
-                break;
-            case "lose":
-                loseCounts += 1;
-                break;
-            case "ties":
-                tieCounts += 1;
-                break;
-        }
-
-        roundsLeft -= 1;
+    //Checks if the computer still have chances of winning. If not gives the win to the player instantly.
+    if ((winCounts > roundsNumber / 2) || (winCounts > loseCounts + roundsLeft) && (loseCounts + roundsLeft < roundsNumber)) {
+        console.log(`You've already won the game ! With ${winCounts} wins against ${loseCounts} losses and ${tieCounts} ties! \nThere's no way he can revert that! :)`);
+    } else if (loseCounts > (roundsNumber / 2) || loseCounts > (winCounts + roundsLeft)) {
+        console.log(`You've already lost the game... With ${loseCounts} losses against ${winCounts} wins and ${tieCounts} ties! \nThere's no way you can revert that! :(`);
     }
+
+    switch (round()) {
+        case "win":
+            winCounts += 1;
+            break;
+        case "lose":
+            loseCounts += 1;
+            break;
+        case "ties":
+            tieCounts += 1;
+            break;
+    }
+
+    roundsLeft -= 1;
+
     if (roundsLeft == 0) {
         if (winCounts > loseCounts) {
             console.log(` \nYou won the game with ${winCounts} wins against ${loseCounts} losses and ${tieCounts} ties!.`);
@@ -42,7 +38,7 @@ function game() {
 }
 
 function round(playerSelection) {
-    
+
     computerSelection = getComputerChoice();
     winner = getWinner(calcResult(playerSelection, computerSelection));
 
@@ -67,34 +63,34 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getPlayerChoice() {
-    let playerChoice = prompt("Rock, paper or scissors? :");
-    playerChoice = playerChoice.toLowerCase();
-    return playerChoice;
-}
-function checkPlayerChoice(playerSelection) {
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-        alert("Select a valid option!");
-        return true;
-    } else {
-        return false;
-    }
-}
-function convertPlayerChoice(playerSelection) {
-    switch (playerSelection) {
-        case "rock":
-            return 1;
-            break;
-        case "paper":
-            return 2;
-            break;
-        case "scissors":
-            return 3;
-            break;
-        default:
-            return alert("Something went wrong on the conversion");
-    }
-}
+// function getPlayerChoice() {
+//     let playerChoice = prompt("Rock, paper or scissors? :");
+//     playerChoice = playerChoice.toLowerCase();
+//     return playerChoice;
+// }
+// function checkPlayerChoice(playerSelection) {
+//     if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+//         alert("Select a valid option!");
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+// function convertPlayerChoice(playerSelection) {
+//     switch (playerSelection) {
+//         case "rock":
+//             return 1;
+//             break;
+//         case "paper":
+//             return 2;
+//             break;
+//         case "scissors":
+//             return 3;
+//             break;
+//         default:
+//             return alert("Something went wrong on the conversion");
+//     }
+// }
 function calcResult(playerSelection, computerSelection) {
     return playerSelection - computerSelection;
 }
@@ -123,9 +119,16 @@ function convertChoice(respectiveChoice) {
     }
 }
 const buttons = document.querySelectorAll('button');
+let spn = document.querySelectorAll('span');
+
+spn.forEach(span => {
+    span.textContent = 0;
+});
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        round(+button.id)
+        let spans = document.querySelector(`.${round(+button.id)}`)
+        spans.textContent ++;
     })
+    
 });
