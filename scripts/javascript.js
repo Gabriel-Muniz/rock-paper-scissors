@@ -41,14 +41,9 @@ function game() {
     }
 }
 
-function round() {
+function round(playerSelection) {
+    
     computerSelection = getComputerChoice();
-
-    do { //Do while to assure that the player input was a valid option
-        playerSelection = getPlayerChoice();
-    } while (checkPlayerChoice(playerSelection));
-
-    playerSelection = convertPlayerChoice(playerSelection);
     winner = getWinner(calcResult(playerSelection, computerSelection));
 
     //Use to log winners of each round.
@@ -127,3 +122,10 @@ function convertChoice(respectiveChoice) {
             break;
     }
 }
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        round(+button.id)
+    })
+});
