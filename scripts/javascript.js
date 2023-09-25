@@ -1,7 +1,7 @@
 let computerSelection, playerSelection, winner;
-let roundsNumber = 0;
-let roundsLeft = 5;
-let winCounts = loseCounts = tieCounts = 0;
+// let roundsNumber = 0;
+// let roundsLeft = 5;
+// let winCounts = loseCounts = tieCounts = 0;
 
 function game() {
 
@@ -119,16 +119,43 @@ function convertChoice(respectiveChoice) {
     }
 }
 const buttons = document.querySelectorAll('button');
+const container = document.querySelector('.results-container')
 let spn = document.querySelectorAll('span');
 
-spn.forEach(span => {
-    span.textContent = 0;
-});
+function resetScore(){
+    spn.forEach(span => {
+        span.textContent = 0;
+    });
+}
+
+function checkChampion(spans) {
+    if (+spans.textContent === 5) {
+        const div = document.createElement('div');
+        div.classList.add('winner-container');
+        div.textContent = 'AND THE WINNER IS...';
+
+        const span = document.createElement('p');
+        span.classList.add('winner-name')
+
+        container.appendChild(div);
+        if (spans.className === "win") {
+            span.textContent = "YOU!!! CONGRATULATIONS!"
+        }else{
+            span.textContent = "THE COMPUTER!!! THIS GAME SUCKS!"
+        }
+        div.appendChild(span);
+        resetScore();
+
+    }
+}
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        let spans = document.querySelector(`.${round(+button.id)}`)
-        spans.textContent ++;
+        let result = round(+button.id)
+        let spans = document.querySelector(`.${result}`)
+        spans.textContent++;
+        if (spans.className !== "ties") {
+            checkChampion(spans)
+        }
     })
-    
 });
