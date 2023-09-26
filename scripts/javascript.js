@@ -108,12 +108,12 @@ function checkChampion(spans) {
         container.appendChild(div);
         if (spans.className === "win") {
             span.textContent = "YOU!!! CONGRATULATIONS!"
-        }else{
-            span.textContent = "THE COMPUTER!!! THIS GAME SUCKS!"
         }
+
+        span.textContent = "THE COMPUTER!!! THIS GAME SUCKS!"
+        
         container.appendChild(span);
         resetScore();
-
     }
 }
 
