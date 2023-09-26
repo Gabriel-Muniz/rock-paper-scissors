@@ -119,7 +119,7 @@ function convertChoice(respectiveChoice) {
     }
 }
 const buttons = document.querySelectorAll('button');
-const container = document.querySelector('.results-container')
+const container = document.querySelector('.result-bottom-row')
 let spn = document.querySelectorAll('span');
 
 function resetScore(){
@@ -143,7 +143,7 @@ function checkChampion(spans) {
         }else{
             span.textContent = "THE COMPUTER!!! THIS GAME SUCKS!"
         }
-        div.appendChild(span);
+        container.appendChild(span);
         resetScore();
 
     }
