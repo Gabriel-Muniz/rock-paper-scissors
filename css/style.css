@@ -1,14 +1,38 @@
-body{
+.body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
     height: 100vh;
 }
-button{
+.container-btn{
+    display: flex;
+    justify-content: center;  
+    flex-wrap: wrap;
+    width: 70%;
+    gap: 50px;
+}
+.choice-btn,
+.container-output div{
+    font-family: 'Noto Color Emoji', sans-serif;
+}
+.choice-btn{
     width: 200px;
     height: 200px;
-}
-.emoji{
-    font-family: 'Noto Color Emoji', sans-serif;
+    border: 0px;
+    flex-shrink: 0;
     font-size: 100px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    transition-timing-function: cubic-bezier(0, 0.29, 0, 1.07);
+}
+.choice-btn:hover{
+    background-color: lightgreen;
+}
+.container-output div{
+    padding: 10px 20px;
+    background-color: lightcoral;
+    font-size: 75px;
 }
