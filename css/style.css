@@ -10,7 +10,7 @@ body{
     align-items: center;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 800px;
     background-color: #e0dfd3;
 }
 button{
@@ -67,7 +67,9 @@ button{
 }
 .container-output .result-board,
 .scoreboard,
-.replay-btn{
+.replay-btn,
+.header,
+.footer{
     font-family: 'Public Pixel', sans-serif;
 }
 .replay-btn{
@@ -82,4 +84,28 @@ button{
 .replay-btn:hover{
     background-color: #241914;
     color: #e0dfd3;
+}
+.header,
+.footer{
+    color: #e0dfd3;
+    background-color: #241914;
+}
+.header{
+    display: flex;
+    height: 200px;
+    width: 100%;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    flex-wrap: nowrap;
+}
+.git-logo{
+    height: 25px;
 }
