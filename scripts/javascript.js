@@ -66,11 +66,11 @@ function checkGameWinner() {
 function announceGameWinner() {
     if (playerScore === 5) {
 
-        spanWinner.textContent = "Congratulations! You won the game!";
+        spanWinner.textContent = "Congratulations!\nYou won the game!";
         containerOutput.appendChild(spanWinner);
         return;
     }
-    spanWinner.textContent = "That's suck! You lose the game!";
+    spanWinner.textContent = "That's suck!\nYou lose the game!";
     containerOutput.appendChild(spanWinner);
 }
 
