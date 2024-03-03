@@ -5,6 +5,7 @@ body{
     margin: 0px;
     padding: 0px;
     color: #241914;
+    overflow: hidden;
 }
 .body{
     display: flex;

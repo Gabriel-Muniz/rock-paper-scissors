@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "eslint-config-wesbos": "^4.0.1"
+  },
+  "eslintConfig": {
+    "extends": ["wesbos"]
+  }
+  
+}
