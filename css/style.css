@@ -1,4 +1,5 @@
 body{
+    font-family: 'Public Pixel', sans-serif;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -68,13 +69,6 @@ button{
     margin-bottom: 50px;
     display: flex;
     gap: 100px;
-}
-.container-output .result-board,
-.scoreboard,
-.replay-btn,
-.header,
-.footer{
-    font-family: 'Public Pixel', sans-serif;
 }
 .replay-btn{
     margin-top: 10px;

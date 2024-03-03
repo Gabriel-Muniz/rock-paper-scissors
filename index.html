@@ -1,39 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rock, paper and scissors</title>
+        <script src="./scripts/javascript.js" defer></script>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Pixelify+Sans&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.cdnfonts.com/css/public-pixel"
+            rel="stylesheet"
+        />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, paper and scissors</title>
-    <script src="./scripts/javascript.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Pixelify+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
-</head>
-
-<body>
-    <div class="header">
-        ROCK, PAPER AND SCISSORS
-    </div>
-    <div class="body">
-        <div class="scoreboard">
-            <span class="player-name">YOU <span class="score-count player">0</span></span>
-            <span class="player-name"><span class="score-count cpu">0</span> CPU</span>
+    <body>
+        <div class="header">ROCK, PAPER AND SCISSORS</div>
+        <div class="body">
+            <div class="scoreboard">
+                <span class="player-name"
+                    >YOU <span class="score-count player">0</span></span
+                >
+                <span class="player-name"
+                    ><span class="score-count cpu">0</span> CPU</span
+                >
+            </div>
+            <div class="container-btn">
+                <button class="choice-btn" id="0">&#129704;</button>
+                <button class="choice-btn" id="1">&#128240;</button>
+                <button class="choice-btn" id="2">&#9986;</button>
+            </div>
+            <div class="container-output"></div>
         </div>
-        <div class="container-btn">
-            <button class="choice-btn" id="1">&#129704;</button>
-            <button class="choice-btn" id="2">&#128240;</button>
-            <button class="choice-btn" id="3">&#9986;</button>
+        <div class="footer">
+            Copyright © Gabriel Muniz 2023
+            <a href="https://github.com/Gabriel-Muniz" target="_blank"
+                ><img
+                    class="git-logo"
+                    src="./icons/github-mark-white.svg"
+                    alt=""
+            /></a>
         </div>
-        <div class="container-output">
-
-        </div>
-    </div>
-    <div class="footer">
-        Copyright ©  Gabriel Muniz 2023 <a href="https://github.com/Gabriel-Muniz" target="_blank"><img class="git-logo" src="./icons/github-mark-white.svg" alt=""></a>
-    </div>
-</body>
-
+    </body>
 </html>
